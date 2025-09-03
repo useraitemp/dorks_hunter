@@ -7,10 +7,10 @@ A simple wrapper around [`xnldorker`](https://github.com/xnl-h4ck3r/xnldorker) t
 ```bash
 git clone https://github.com/six2dez/dorks_hunter
 cd dorks_hunter
-pip3 install .
+pip3 install -r requirements.txt
 ```
 
-> Make sure `xnldorker` is installed and available in your `$PATH`.
+> Also ensure `xnldorker` is installed and available in your `$PATH`.
 
 ## Usage
 
@@ -23,8 +23,9 @@ python3 dorks_hunter.py -d domain.com -o output.txt
 
 ## Requirements
 
-- Python 3.x
-- [`xnldorker`](https://github.com/xnl-h4ck3r/xnldorker)
+- Python 3.8+ (stdlib provides `argparse` and `subprocess`)
+- [`tldextract`](https://pypi.org/project/tldextract/) (installed via requirements)
+- [`xnldorker`](https://github.com/xnl-h4ck3r/xnldorker) in PATH
 
 ## Notes
 

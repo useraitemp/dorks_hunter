@@ -50,6 +50,16 @@ def main():
     "# Pastebin-like sites (https://www.google.com/search?q=site%3Ajustpaste.it+%7C+site%3Aheypasteit.com+%7C+site%3Apastebin.com+%22"+target+"%22)": "site:justpaste.it | site:heypasteit.com | site:pastebin.com \""+target+"\"",
     "# Apache Struts RCE (https://www.google.com/search?q=site%3A"+domain+"+ext%3Aaction+%7C+ext%3Astruts+%7C+ext%3Ado)": "site:"+domain+" ext:action | ext:struts | ext:do",
     "# Linkedin employees (https://www.google.com/search?q=site%3Alinkedin.com+employees+"+domain+")": "site:linkedin.com employees "+domain+"",
+    "# AWS compute hosts (https://www.google.com/search?q=site%3A*.compute.amazonaws.com+\""+target+"\")": "site:*.compute.amazonaws.com \"" +target+"\"",
+    "# AWS mentions (https://www.google.com/search?q=\""+target+"\"+site%3Aaws.amazon.com)": target+" site:aws.amazon.com",
+    "# Azure Blob Storage (https://www.google.com/search?q=site%3Ablob.core.windows.net+\""+target+"\")": "site:blob.core.windows.net \""+target+"\"",
+    "# Azure Edge CDN (https://www.google.com/search?q=site%3A*.azureedge.net+\""+target+"\")": "site:*.azureedge.net \"" +target+"\"",
+    "# Azure Cloudapp (https://www.google.com/search?q=site%3A*.cloudapp.azure.com+\""+target+"\")": "site:*.cloudapp.azure.com \"" +target+"\"",
+    "# Azure Pipelines config (https://www.google.com/search?q=inurl%3A.azure-pipelines.yml+\""+target+"\")": "inurl:.azure-pipelines.yml \"" +target+"\"",
+    "# Compressed/DB backups (https://www.google.com/search?q=\""+target+"\"+(filetype%3Azip+OR+filetype%3A7z+OR+filetype%3Arar+OR+filetype%3Atar+OR+filetype%3Agz+OR+filetype%3Asql+OR+filetype%3Abz2+OR+ext%3Abak))": "\""+target+"\" (filetype:zip OR filetype:7z OR filetype:rar OR filetype:tar OR filetype:gz OR filetype:sql OR filetype:bz2 OR ext:bak)",
+    "# FTP endpoints (https://www.google.com/search?q=\""+target+"\"+inurl%3Aftp+OR+inurl%3Asftp+OR+inurl%3Aftps)": "\""+target+"\" inurl:ftp OR inurl:sftp OR inurl:ftps",
+    "# Excel creds on subdomains (https://www.google.com/search?q=site3A*."+domain+"+ext%3Axls+%7C+ext%3Axlsx+(login+%7C+password+%7C+username))": "site:*."+domain+" ext:xls | ext:xlsx (login | password | username)",
+    "# Azure Websites (https://www.google.com/search?q=site%3Aazurewebsites.net+intitle%3A\""+target+"\")": "site:azurewebsites.net intitle:\""+target+"\""
     }
 
     for description, dork in dorks.items():
